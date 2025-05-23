@@ -1,0 +1,488 @@
+.top-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: #3399ff !important; /* Strong blue background */
+    color: #000000 !important;      /* Force black text */
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+
+.connect-with-us {
+    display: flex;
+    gap: 10px;
+}
+
+.connect-with-us a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.connect-with-us a:hover {
+    color: #0f0f0e;
+}
+
+
+
+
+.contact-info {
+flex: 1;
+white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+flex-wrap: nowrap; /* Ensures all icons stay in one row */
+}
+
+.social-icons a {
+color: white;
+text-decoration: none;
+font-size: 20px;
+transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+color: #0a0a0a;
+}
+
+
+  /* Top Bar */
+    .top-bar1 {
+display: flex;
+justify-content: space-between; /* Contact info on left, icons on right */
+align-items: center;
+background: rgb(61, 172, 247);
+color: #ffffff;
+font-family: 'Times New Roman', Times, serif;
+padding: 10px 20px;
+font-size: 14px;
+flex-wrap: nowrap; /* Prevents icons from breaking into new lines */
+}
+
+
+
+
+/* Navbar */
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgb(60, 242, 248);
+padding: 10px 20px;
+color: rgb(255, 98, 0);
+}
+
+/* Logo */
+.logo-container {
+display: flex;
+align-items: center;
+}
+
+.logo {
+height: 40px;
+width: auto;
+}
+
+/* Nav Menu */
+.nav-links {
+list-style: none;
+display: flex;
+gap: 15px;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-links li {
+position: relative;
+}
+
+.nav-links li a {
+color: rgb(2, 2, 2);
+text-decoration: none;
+font-weight: bold;
+padding: 10px 15px;
+transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li a:hover {
+color: #060606;
+transform: scale(1.1);
+}
+
+/* Hamburger Menu */
+.hamburger {
+display: none;
+font-size: 24px;
+cursor: pointer;
+color: white;
+}
+
+/* Search Popup */
+.search-popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+padding: 15px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+width: 50px;  /* Reduce popup width */
+font-family: 'Times New Roman', Times, serif;
+}
+
+/* Search Box */
+.search-popup-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/* Search Input */
+.search-popup-content input {
+width: 180px; /* Reduce input width */
+padding: 8px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+/* Search Button */
+.search-popup-content button {
+width: 100px; /* Smaller button */
+padding: 6px;
+background: rgb(60, 242, 248);
+color: white;
+border: none;
+cursor: pointer;
+border-radius: 3px;
+}
+
+.search-popup-content button:hover {
+background: rgb(60, 242, 248);}
+
+
+.close-btn {
+align-self: flex-end;
+font-size: 24px;
+cursor: pointer;
+}
+
+@media (max-width: 768px) {
+.nav-links {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgb(60, 242, 248);
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.nav-links.active {
+    display: flex; /* Show when active */
+}
+
+.hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+}
+
+
+/* Social Icons - Hide all except one */
+.social-icons a {
+    display: none;
+}
+
+.social-icons a:first-child {
+    display: block;
+}
+
+/* Show all social icons on click */
+.social-icons.active a {
+    display: block;
+}
+
+
+
+/* Logo */
+.logo {
+    height: 30px;
+    width: 100px;
+}
+
+/* Loading line animation */
+.loading-line1 {
+position: absolute;
+bottom: 0;  /* Fix alignment */
+left: 0;  /* Start from left */
+width: 0;
+height: 1px;
+background-color: rgb(12, 12, 12);
+transition: width 0.4s ease-in-out;
+color: #000000;
+}
+
+/* Hover Effect */
+.nav-links li a:hover .loading-line {
+width: 40%;  /* Adjust the length (40% of the link width) */
+left: 30%;  /* Center the shorter line */
+color: black;
+}
+
+
+
+/* Dropdown Menu - Initially Hidden */
+.dropdown-menu {
+display: none;
+position: absolute;
+background: white;
+list-style: none;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+top: 100%;
+left: 0;
+min-width: 200px;
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+padding: 8px 12px;
+}
+
+.dropdown-menu li a {
+text-decoration: none;
+color: black;
+display: block;
+transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+background:  rgb(60, 242, 248);
+color: white;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+
+/* Caret icon */
+.caret {
+margin-left: 5px;
+font-size: 14px;
+transition: transform 0.3s ease;
+}
+
+/* Rotate caret when dropdown is open */
+.dropdown:hover .caret {
+transform: rotate(180deg);
+}
+
+/* If using click toggle */
+.dropdown-menu.show ~ a .caret {
+transform: rotate(180deg);
+}
+
+
+/* Footer */
+footer {
+background: #002147;
+color: white;
+padding: 40px 20px;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+padding: 20px;
+background: rgb(60, 242, 248);
+color: #ffffff;
+border-radius: 10px;
+margin: 20px;
+}
+
+.footer-container div {
+flex: 1;
+margin: 10px;
+}
+
+.footer-container h3 {
+border-bottom: 2px solid #ffcc00;
+padding-bottom: 10px;
+}
+
+.footer-container ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-container ul li a {
+color: white;
+text-decoration: none;
+display: block;
+padding: 5px 0;
+}
+
+.footer-container input {
+width: 80%;
+padding: 10px;
+margin-top: 10px;
+}
+
+.footer-container button {
+padding: 10px;
+background: #ffcc00;
+border: none;
+cursor: pointer;
+margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+
+.footer-container {
+    flex-direction: column;
+    text-align: center;
+}
+}
+
+
+/* Section Title */
+h2 {
+color: #007bff;
+font-weight: bold;
+}
+
+.subtitle {
+font-size: 1.1rem;
+color: #666;
+}
+
+
+
+.footer {
+background: rgb(60, 242, 248);
+color: #ffffff;
+padding: 40px 0;
+
+}
+
+.footer-title {
+    color: #f8f9fa;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #d1d1d1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #0c0c0c;
+}
+
+.text-center a {
+    color: #080808;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+        .top-bar {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .connect-with-us {
+            justify-content: center;
+            margin-top: 10px;
+        }
+    }
+
+    .container{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+
+    /* Profile Dropdown */
+.profile-dropdown {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    padding-left: 120px;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.profile-btn i {
+    color: #edf0f3;
+}
+
+.profile-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    left: 0;
+    margin-top: 5px;
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.profile-dropdown .dropdown-menu li {
+    padding: 8px 12px;
+}
+
+.profile-dropdown .dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.profile-dropdown .dropdown-menu li a:hover {
+    background: linear-gradient(135deg, #1e1e2f, #00c6ff);
+    color: white;
+    border-radius: 5px;
+}
+

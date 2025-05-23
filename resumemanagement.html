@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumemanagent</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+    <style>
+
+
+/* Dropdown Container */
+.user-dropdown {
+    position: absolute;
+    top: 50px; /* Position below the icon */
+    right: 0;
+    background: white;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* User Info */
+.user-info h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-info p {
+    margin: 5px 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Dropdown Links */
+.user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-dropdown ul li {
+    padding: 8px;
+    text-align: left;
+}
+
+.user-dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-size: 14px;
+}
+
+.user-dropdown ul li a:hover {
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+
+
+
+/* Custom Animation Styles */
+.floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, black);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-glow:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-glow:hover:before {
+            left: 100%;
+        }
+
+
+
+
+
+        .partners {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f1f1f1;
+    padding: 20px 0;
+}
+
+.partner-slider {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.partner-track {
+    display: flex;
+    gap: 40px; /* Space between images */
+    width: calc(220px * 10); /* Adjust width based on image count */
+    animation: scroll 20s linear infinite; /* Slow animation */
+}
+
+.partner-track img {
+    width: 220px; /* Increase image width */
+    height: 80px; /* Maintain aspect ratio */
+    margin-right: 30px; /* More space between logos */
+}
+
+/* Slow Scrolling Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+} 
+
+
+.pulse {
+  color: #0d6efd; /* Bootstrap primary blue */
+}
+.cta-section h1 {
+  color: #0d6efd;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Aligns items vertically */
+  gap: 20px;               /* Space between menu and user icon */
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar1" style="background-color: #87bcf5 !important; color: black; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-family: Arial, sans-serif;">
+    <span class="contact-info">
+        📍 777 Street, Bangalore, INDIA | 📞 +91 1234567890 | ✉ mahi@gmail.com
+    </span>
+    <span class="connect-with-us">
+        <a href="#" style="color: #101010; margin-left: 10px;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" style="color: #0a0a0a; margin-left: 10px;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" style="color: #040404; margin-left: 10px;"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-youtube"></i></a>
+    </span>
+</div>
+  
+  
+   <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="uploads/1743837369_icon.png" alt="Logo" class="logo" style="height: 40px;">
+    </div>
+  
+  
+    
+  
+  
+    
+  
+    <!-- Hamburger Menu (for mobile) -->
+  <span class="hamburger" id="menuToggle">☰</span>
+
+  <!-- Flex container -->
+  <div class="nav-container">
+    <ul class="nav-links fs-4" id="navMenu">
+      <li><a href="home.html" id="service-link">Home <span class="loading-line"></span></a></li>
+      <li><a href="pricing.html" id="pricing-link">Pricing <span class="loading-line"></span></a></li>
+      <li class="dropdown">
+        <a href="#" id="support-link">Features <span class="caret">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="candidate.html">Candidate Sourcing</a></li>
+          <li><a href="careersite.html">Career Site</a></li>
+          <li><a href="resumemanagement.html">Resume Management</a></li>
+          <li><a href="backgroundscreening.html">Background Screening</a></li>
+        </ul>
+      </li>
+      <li><a href="solutions.html" id="contact-link">Solutions <span class="loading-line"></span></a></li>
+      <li><a href="contact.html" id="help-link">Contact <span class="loading-line"></span></a></li>
+    </ul>
+
+    <!-- User Icon -->
+    <div class="header-media user-dropdown-toggle" onclick="toggleDropdown()">
+      <i class="bi bi-person-circle" style="font-size: 30px; cursor: pointer;"></i>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="userDropdown" class="user-dropdown">
+      <div class="user-info">
+        <!-- <h6><?php echo htmlspecialchars($username ?? 'Guest'); ?></h6>
+        <p><?php echo htmlspecialchars($user_type ?? 'Unknown'); ?></p> -->
+      </div>
+      <hr>
+      <ul>
+        <li><a href="signIn.html">Logout</a></li>
+        <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+  
+    
+  
+  
+  
+
+
+    <div class="container-fluid py-5 bg-header" style="margin-bottom: 90px;">
+        <div class="container-fluid py-5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row g-5 justify-content-center">
+                <div class="section-title position-relative text-center mb-5">
+                    <h1 class="display-2 text-dark animate__animated animate__fadeInDown text-uppercase text-center"
+                        style="font-size: 50px; font-weight: 700; letter-spacing: 1px; color: #4facfe; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        Revolutionize Your Hiring Process with Our Advanced Resume Management Service
+                    </h1>
+               
+                
+                    <br>
+                    <div class="container px-0" data-aos="zoom-in" data-aos-delay="300" style="max-width: 800px;">
+                        <div class="video-container mx-auto">
+                            <video controls autoplay muted loop>
+                                <source src="img/resumemanagent.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="mt-4 text-center" data-aos="fade-up" data-aos-delay="500">
+                            <a href="#" class="btn btn-primary py-3 px-5 btn-glow animate__animated animate__pulse animate__infinite">Sign In</a>
+                        </div>
+                    </div>
+                    <br><br>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Full Screen Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Full Screen Search End -->
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;" data-aos="fade-up">
+            <h5 class="fw-bold text-primary text-uppercase">Features</h5>
+            <h1 class="mb-0 gradient-text">Discover the Power of Our Features</h1>
+        </div>
+        <br>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12 feature-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-bolt text-white fa-2x"></i>
+                        </div>
+                        <h4 class="gradient-text fs-3">Effortless Bulk Resume Parsing</h4>
+                        <p class="mb-0 fs-5">Instantly process multiple resumes at once, saving you time and ensuring no talent goes unnoticed</p>
+                    </div>
+                    <div class="col-12 feature-card mt-4" data-aos="fade-right" data-aos-delay="400">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-user-circle text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fs-3">Dynamic Candidate Profiles</h4>
+                        <p class="mb-0 fs-5">Watch as detailed candidate profiles come to life at the click of a button, providing insightful information for quick assessments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300" style="min-height: 350px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded floating" src="uploads/fea.png" style="object-fit: fill;">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12 feature-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-search text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fs-3">Swift Search and Filter Capabilities</h4>
+                        <p class="mb-0 fs-5"> Navigate through a sea of resumes effortlessly with our intuitive search and filtering tools, making candidate selection a breeze.</p>
+                    </div>
+                    <div class="col-12 feature-card mt-4" data-aos="fade-left" data-aos-delay="400">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-lock text-white fa-2x"></i>
+                        </div>
+                        <h4 class="fs-3">Fortress-Level Data Security</h4>
+                        <p class="mb-0 fs-5"> Rest easy knowing that sensitive candidate information is safeguarded at every step, so you can focus on making the right hiring decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Vendor Start -->
+<section class="partners mt-4" data-aos="fade-up">
+    <div class="container">
+      <h3 class="text-primary text-center mb-4 fade-in-up">Trusted By Leading Companies</h3>
+      <div class="partner-slider">
+        <div class="partner-track">
+          <img src="uploads/brand.jpg" alt="Partner 1">
+          <img src="uploads/brand1.jpg" alt="Partner 2">
+          <img src="uploads/brand2.jpg" alt="Partner 3">
+          <img src="uploads/brand3.jpg" alt="Partner 4">
+          <img src="uploads/brand4.jpg" alt="Partner 5">
+          <img src="uploads/brand5.jpg" alt="Partner 6">
+          <img src="uploads/brand6.jpg" alt="Partner 7">
+          <img src="uploads/brand7.jpg" alt="Partner 8">
+          <img src="uploads/brand8.jpg" alt="Partner 9">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Vendor End -->
+
+<!-- CTA Section -->
+<div class="container-fluid py-5 bg-white text-primary">
+
+    <div class="container py-5">
+        <div class="row g-5 text-center">
+            <div class="col-12" data-aos="zoom-in">
+                <h1 class="mb-0 text-center pulse">Don't just manage resumes, master them with our revolutionary recruitment application. Join us in shaping the future of hiring today</h1>
+                <div class="mt-4">
+                    <a href="#" class="btn btn-dark py-3 px-5 btn-glow animate__animated animate__rubberBand animate__infinite animate__slower">Sign In Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- Footer Section -->
+ <footer class="footer mt-5 py-4">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Column 1: REBIL Recruit -->
+            <div>
+                <h3 class="footer-title">REBIL Recruit</h3>
+                <p>Recruit's world-class recruitment software will help you find, evaluate, and communicate with candidates for any role.</p>
+                <p>A more efficient hiring process means new hires that add more value to your organization or clients.</p>
+            </div>
+
+            <!-- Column 2: Get in Touch -->
+            <div>
+                <h3 class="footer-title">Get In Touch</h3>
+                <p>777 Street, Bangalore, INDIA</p>
+                <p>mahi@gmail.com</p>
+                <p>+91 1234567890</p>
+            </div>
+
+            <!-- Column 3: Quick Links -->
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Latest Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Popular Links -->
+            <div>
+                <h3 class="footer-title">Popular Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Latest Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="text-center mt-4">
+            <p>© Rebil. All Rights Reserved. Designed by <a href="https://www.ttglobalit.com/">TT Global</a></p>
+        </div>
+    </div>
+</footer>
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
+        <script src="script.js"></script>
+        <script>
+            function toggleDropdown() {
+    var dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function(event) {
+    var dropdown = document.getElementById("userDropdown");
+    var toggle = document.querySelector(".user-dropdown-toggle");
+
+    if (!toggle.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+});
+
+
+document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        const targetUrl = this.getAttribute('href');
+        console.log("Navigating to:", targetUrl);
+        window.location.href = targetUrl;
+    });
+});
+
+
+        function toggleDropdown() {
+    var dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function(event) {
+    var dropdown = document.getElementById("userDropdown");
+    var toggle = document.querySelector(".user-dropdown-toggle");
+
+    if (!toggle.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+});
+
+
+document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    window.location.href = this.getAttribute('href');
+  });
+});
+
+
+
+
+<!-- JavaScript Libraries -->
+   
+   
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Add animation to elements on scroll
+        $(window).scroll(function() {
+            $('.feature-card').each(function() {
+                var position = $(this).offset().top;
+                var scroll = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                
+                if (scroll > position - windowHeight + 200) {
+                    $(this).addClass('animate__animated animate__fadeInUp');
+                }
+            });
+        });
+    
+
+
+</script>
+</body>
+   </html>
+
+   

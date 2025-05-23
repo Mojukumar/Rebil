@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forgot Password - Rebil Recruit</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        /* Full Page Layout */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue Gradient */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Left Side - Forgot Password Form */
+        .forgot-form {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .forgot-form h3 {
+            color: #007bff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .forgot-form p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .forgot-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        /* Social Media Login */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 18px;
+            color: white;
+            background: #007bff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #0056b3;
+        }
+
+        /* Right Side - Image & Content */
+        .forgot-media {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .forgot-media img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .crm-info {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .forgot-media {
+                display: none; /* Hide image on small screens */
+            }
+        }
+
+        /* Proper Checkbox Size */
+        .custom-checkbox {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            margin-top: 1px; /* Aligns checkbox with text */
+        }
+
+        /* Ensure label text is aligned properly */
+        .form-check-label {
+            font-size: 14px;
+            color: #333;
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+
+        /* Space between checkbox and text */
+        .me-2 {
+            margin-right: 8px;
+        }
+
+        /* Prevent wrapping */
+        .flex-nowrap {
+            flex-wrap: nowrap !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+      <!-- Left Side: Forgot Password Form -->
+      <div class="forgot-form">
+        <h3>Forgot Password?</h3>
+        <p>Enter your email to reset your password</p>
+  
+        <form action="forget.php" method="POST">
+          <input type="email" name="email" placeholder="Email" required>
+  
+          <div class="d-flex justify-content-between align-items-center mt-3 flex-nowrap">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" class="custom-checkbox me-2" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember my preference</label>
+            </div>
+            <a href="help.html" class="btn-link text-primary">Need Help?</a>
+          </div>
+  
+          <button type="submit" class="btn btn-primary mt-3">Reset Password</button>
+        </form>
+  
+        <h6 class="text-center mt-3">Or continue with</h6>
+        <div class="social-icons">
+          <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+          <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+  
+        <p class="text-center mt-3">Back to <a href="signIn.html">Sign In</a></p>
+      </div>
+  
+      <!-- Right Side: Image & Content -->
+      <div class="forgot-media">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkSLk6XeWUXzYlk30jofZ22k2AFxkuR8-8hJ6jSr-X2Kc-EaB40Ut__u6Qa_7aHaa5gyk&usqp=CAU" alt="CRM Dashboard">
+        <p class="crm-info">REBIL Recruit – AI-Powered Recruitment Management System</p>
+      </div>
+    </div>
+  </body>
+  
+</html>

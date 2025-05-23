@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REBIL Recruit - Sign Up</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome Icons (Latest Version) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link href="styles.css" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Full Page Layout */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue Gradient */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Left Side - Registration Form */
+        .register-form {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .register-form h3 {
+            color: #007bff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .register-form p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .register-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        /* Social Media Login */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 18px;
+            color: white;
+            background: #007bff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #0056b3;
+        }
+
+        /* Right Side - Image & Content */
+        .register-media {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .register-media img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .crm-info {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .register-media {
+                display: none; /* Hide image on small screens */
+            }
+        }
+
+        input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select.form-select {
+    width: 100%;              /* Make all full width inside parent */
+    max-width: 500px;         /* Optional: limit width */
+    height: 45px;             /* Uniform height */
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;      /* Spacing between fields */
+    border-radius: 5px;       /* Rounded corners */
+    box-sizing: border-box;   /* Include padding in width */
+  }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Side: Registration Form -->
+        <div class="register-form">
+            <h3>Sign Up</h3>
+            <p>Create your account to start using REBIL Recruit</p>
+
+            <form action="register.php" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+
+<select id="userRole" name="user_type" class="form-select" required>
+  <option value="" disabled selected>Select Role</option>
+  <option value="user">User</option>
+  <option value="admin">Admin</option>
+</select>
+
+            <br>
+            <br>
+            
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            
+
+            <h6 class="text-center mt-3">Or continue with</h6>
+            <div class="social-icons">
+                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <p class="text-center mt-3">Already have an account? <a href="signIn.html">Sign In</a></p>
+        </div>
+
+        <!-- Right Side: Image & Content -->
+        <div class="register-media">
+            <img src="data:image/jpeg;base64,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" alt="CRM Dashboard">
+            <p class="crm-info">
+                REBIL Recruit – AI-Powered Recruitment Management System
+            </p>
+        </div>
+    </div>
+
+
+
+    
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        const successMessage = urlParams.get('success');
+    
+        // Display error message if exists
+        if (errorMessage) {
+            alert(errorMessage); // You can replace this with a styled div or modal
+        }
+    
+        // Display success message if exists
+        if (successMessage) {
+            alert(successMessage); // You can also show this in a success div instead
+        }
+    </script>
+    
+
+
+</body>
+</html>

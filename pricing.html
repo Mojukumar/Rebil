@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+    <style>
+
+
+/* Dropdown Container */
+.user-dropdown {
+    position: absolute;
+    top: 50px; /* Position below the icon */
+    right: 0;
+    background: white;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* User Info */
+.user-info h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-info p {
+    margin: 5px 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Dropdown Links */
+.user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-dropdown ul li {
+    padding: 8px;
+    text-align: left;
+}
+
+.user-dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-size: 14px;
+}
+
+.user-dropdown ul li a:hover {
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+
+
+
+
+
+
+/* Container holds both sides */
+.contact-container {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    flex-wrap: wrap; /* allows stacking on small screens */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+
+    .contact-info {
+    flex: 1 1 400px;
+    min-width: 300px;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-info h2,
+.contact-info h1,
+.contact-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.contact-info h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .contact-info h1 {
+        font-size: 22px;
+    }
+
+    .contact-info p {
+        font-size: 15px;
+    }
+}
+
+/* RIGHT SIDE – FORM BOX */
+.contact-box {
+    flex: 1 1 400px;
+    background: #0099e5;
+    padding: 30px 25px;
+    border-radius: 12px;
+    min-width: 300px;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-box input,
+.contact-box textarea,
+.contact-box select {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.contact-box textarea {
+    min-height: 100px;
+}
+
+.contact-box button {
+    width: 100%;
+    background: #002147;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-box button:hover {
+    background: #00152e;
+    transform: scale(1.02);
+}
+
+/* 📱 Mobile View Adjustments */
+@media (max-width: 768px) {
+    .contact-box {
+        padding: 20px;
+    }
+
+    .contact-box input,
+    .contact-box textarea,
+    .contact-box select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .contact-box button {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+        .partners {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f1f1f1;
+    padding: 20px 0;
+}
+
+.partner-slider {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.partner-track {
+    display: flex;
+    gap: 40px; /* Space between images */
+    width: calc(220px * 10); /* Adjust width based on image count */
+    animation: scroll 20s linear infinite; /* Slow animation */
+}
+
+.partner-track img {
+    width: 220px; /* Increase image width */
+    height: 80px; /* Maintain aspect ratio */
+    margin-right: 30px; /* More space between logos */
+}
+
+/* Slow Scrolling Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+} 
+
+
+#add-pricing-btn {
+    display: block !important; /* Force it to be visible */
+    margin-top: 0px;
+   
+}
+.font_family{
+    justify-items: center;
+}
+
+
+
+
+/* General Container Styling */
+#pricing-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Bootstrap Row Styling */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between pricing cards */
+}
+
+/* Card Styling */
+.pricing-card {
+    flex: 1 1 calc(33.33% - 20px); /* Makes each card responsive and equal width */
+    max-width: 350px; /* Sets a max width for uniformity */
+    min-width: 250px; /* Prevents cards from getting too small */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is spaced evenly */
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+    background: #fff;
+}
+
+/* Card Hover Effect */
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Body */
+.pricing-card .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Plan Title */
+.pricing-card .card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Ensures the card body takes full height */
+.pricing-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Description */
+.pricing-card .card-text {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Price Styling */
+.pricing-card h6 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+    margin: 10px 0;
+}
+
+/* Features List */
+.pricing-card p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+.pricing-card .btn-success {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #28a745; /* Bootstrap success color */
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Button Styling */
+.pricing-card button {
+    width: 100%; /* Ensures buttons take full width */
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.pricing-card .btn-success:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+#pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pricing-card {
+    flex: 1 1 300px;
+    max-width: 300px;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 768px) {
+    #pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Modal Background */
+#updateModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Modal Form Container */
+#updateForm {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Inputs & Textarea */
+#updateForm input[type="number"],
+#updateForm textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+/* Buttons */
+#updateForm button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#updateForm button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+#updateForm button#closeModal {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+#updateModal {
+    transition: opacity 0.3s ease;
+}
+
+#updateModal[style*="display: none"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Aligns items vertically */
+  gap: 20px;               /* Space between menu and user icon */
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar1" style="background-color: #87bcf5 !important; color: black; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-family: Arial, sans-serif;">
+    <span class="contact-info">
+        📍 777 Street, Bangalore, INDIA | 📞 +91 1234567890 | ✉ mahi@gmail.com
+    </span>
+    <span class="connect-with-us">
+        <a href="#" style="color: #101010; margin-left: 10px;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" style="color: #0a0a0a; margin-left: 10px;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" style="color: #040404; margin-left: 10px;"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-youtube"></i></a>
+    </span>
+</div>
+
+
+   <!-- Navbar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="uploads/1743837369_icon.png" alt="Logo" class="logo" style="height: 40px;">
+        </div>
+
+
+    <div class="header-info2 d-flex align-items-center position-relative">
+    
+
+    
+</div>
+
+
+    
+
+<span class="hamburger" id="menuToggle">☰</span>
+
+<!-- Flex container -->
+<div class="nav-container">
+  <ul class="nav-links fs-4" id="navMenu">
+    <li><a href="home.html" id="service-link">Home <span class="loading-line"></span></a></li>
+    <li><a href="pricing.html" id="pricing-link">Pricing <span class="loading-line"></span></a></li>
+    <li class="dropdown">
+      <a href="#" id="support-link">Features <span class="caret">▾</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="candidate.html">Candidate Sourcing</a></li>
+        <li><a href="careersite.html">Career Site</a></li>
+        <li><a href="resumemanagement.html">Resume Management</a></li>
+        <li><a href="backgroundscreening.html">Background Screening</a></li>
+      </ul>
+    </li>
+    <li><a href="solutions.html" id="contact-link">Solutions <span class="loading-line"></span></a></li>
+    <li><a href="contact.html" id="help-link">Contact <span class="loading-line"></span></a></li>
+  </ul>
+
+  <!-- User Icon -->
+  <div class="header-media user-dropdown-toggle" onclick="toggleDropdown()">
+    <i class="bi bi-person-circle" style="font-size: 30px; cursor: pointer;"></i>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div id="userDropdown" class="user-dropdown">
+    <div class="user-info">
+      <!-- <h6><?php echo htmlspecialchars($username ?? 'Guest'); ?></h6>
+      <p><?php echo htmlspecialchars($user_type ?? 'Unknown'); ?></p> -->
+    </div>
+    <hr>
+    <ul>
+      <li><a href="signIn.html">Logout</a></li>
+      <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+   
+
+
+
+
+
+    <div class="container">
+        <div class="section">
+            <h2 class="font_family"><center>Pricing Plans</center></h2>
+            <h1 class="font_family"><center> We are Offering Competitive Prices for Our Clients</h1>
+
+            
+            <div id="pricing-container"></div>
+            <form id="pricing-form" style="display: none;">
+                <!-- Form fields go here -->
+            </form>
+            
+    
+    
+    <!-- Pricing Plans Display (Cards Instead of Table) -->
+    <div id="pricing-container" class="d-flex flex-wrap justify-content-center"></div>
+    
+    
+    
+
+
+<!-- Modal -->
+<!-- Modal -->
+<div id="updateModal" style="display:none;">
+    <form id="updateForm">
+        <input type="hidden" id="update_id">
+        <input type="number" step="0.01" id="update_price" placeholder="Price" required>
+        <textarea id="update_features" placeholder="Features" required></textarea>
+        <button type="submit">Save</button>
+        <button type="button" id="closeModal">Cancel</button>
+    </form>
+</div>
+
+
+    
+</div>
+</div>
+
+
+
+
+
+
+    
+        
+        <div class="section contact-container">
+            <div class="contact-info">
+                <h2>Request A Query</h2>
+                <h1>Need A Free Query?
+                    <br> Please Feel Free to Contact Us</h1>
+                <p>Looking to hire top talent?
+                    <br> Fill out the form, and we’ll provide a tailored solution.</p>
+                <div class="icon-text"><i class="fa fa-reply"></i> Reply within 24 hours</div>
+                <div class="icon-text"><i class="fa fa-phone"></i> 24 hrs telephone support</div>
+                <div class="icon-text"><i class="fa fa-phone-square"></i> Call: +91 1234567890</div>
+            </div>
+            <div class="contact-box">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <select><option>Select A Service</option></select>
+                <textarea placeholder="Message"></textarea>
+                <button>Request A Query</button>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    
+    
+    <section class="partners mt-4" data-aos="fade-up">
+        <div class="container">
+          <h3 class="text-primary text-center mb-4 fade-in-up">Trusted By Leading Companies</h3>
+          <div class="partner-slider">
+            <div class="partner-track">
+              <img src="uploads/brand.jpg" alt="Partner 1">
+              <img src="uploads/brand1.jpg" alt="Partner 2">
+              <img src="uploads/brand2.jpg" alt="Partner 3">
+              <img src="uploads/brand3.jpg" alt="Partner 4">
+              <img src="uploads/brand4.jpg" alt="Partner 5">
+              <img src="uploads/brand5.jpg" alt="Partner 6">
+              <img src="uploads/brand6.jpg" alt="Partner 7">
+              <img src="uploads/brand7.jpg" alt="Partner 8">
+              <img src="uploads/brand8.jpg" alt="Partner 9">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer Section -->
+ <footer class="footer mt-5 py-4">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Column 1: REBIL Recruit -->
+            <div>
+                <h3 class="footer-title">REBIL Recruit</h3>
+                <p>Recruit's world-class recruitment software will help you find, evaluate, and communicate with candidates for any role.</p>
+                <p>A more efficient hiring process means new hires that add more value to your organization or clients.</p>
+            </div>
+
+            <!-- Column 2: Get in Touch -->
+            <div>
+                <h3 class="footer-title">Get In Touch</h3>
+                <p>777 Street, Bangalore, INDIA</p>
+                <p>mahi@gmail.com</p>
+                <p>+91 1234567890</p>
+            </div>
+
+            <!-- Column 3: Quick Links -->
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Latest Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Popular Links -->
+            <div>
+                <h3 class="footer-title">Popular Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Latest Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="text-center mt-4">
+            <p>© Rebil. All Rights Reserved. Designed by <a href="https://www.ttglobalit.com/">TT Global</a></p>
+        </div>
+    </div>
+</footer>
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
+        <script src="script.js"></script>
+        <script>
+            function toggleDropdown() {
+    var dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function(event) {
+    var dropdown = document.getElementById("userDropdown");
+    var toggle = document.querySelector(".user-dropdown-toggle");
+
+    if (!toggle.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+});
+
+
+
+
+
+
+
+
+document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default behavior to allow custom navigation
+        
+        const targetUrl = this.getAttribute('href');
+        console.log("Navigating to:", targetUrl);
+        
+        // Allowing navigation to the target URL
+        window.location.href = targetUrl;
+    });
+});
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM fully loaded!");
+
+        
+    
+        
+    
+       
+    
+        
+    
+        /*** 🔹 Load and Update Pricing Plans ***/
+        function loadPricingPlans() {
+            fetch("fetch_pricing.php")
+                .then(response => response.json())
+                .then(data => {
+                    const pricingContainer = document.getElementById("pricing-container");
+                    pricingContainer.innerHTML = "";
+    
+                    data.forEach(plan => {
+                        pricingContainer.innerHTML += `
+                            <div class="card pricing-card m-3" style="width: 18rem;">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">${plan.plan_name || "Unnamed Plan"}</h5>
+                                    <p class="card-text">${plan.description || "No description"}</p>
+                                    <h6 class="text-primary">Price: $${plan.price || "0.00"} / ${plan.price_duration || "N/A"}</h6>
+                                    <p><strong>Features:</strong> ${plan.features || "None"}</p>
+                                    <button class="btn btn-warning update-btn"
+                                        data-id="${plan.id}" 
+                                        data-price="${plan.price}" 
+                                        data-features="${plan.features}">
+                                        Update
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+    
+                    attachUpdateListeners();
+                })
+                .catch(error => {
+                    console.error("Fetch Error:", error);
+                    const pricingContainer = document.getElementById("pricing-container");
+                    pricingContainer.innerHTML = `<p class='text-danger'>Failed to load pricing plans.</p>`;
+                });
+        }
+    
+        function attachUpdateListeners() {
+            document.querySelectorAll(".update-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    document.getElementById("update_id").value = this.getAttribute("data-id");
+                    document.getElementById("update_price").value = this.getAttribute("data-price");
+                    document.getElementById("update_features").value = this.getAttribute("data-features");
+    
+                    document.getElementById("updateModal").style.display = "block";
+                });
+            });
+        }
+    
+        document.getElementById("updateForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            const updatedData = {
+                id: document.getElementById("update_id").value,
+                price: document.getElementById("update_price").value,
+                features: document.getElementById("update_features").value,
+            };
+    
+            fetch("edit_pricing.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(updatedData),
+            })
+                .then(response => response.json())
+                .then(result => {
+                    alert(result.message || result.error);
+                    document.getElementById("updateModal").style.display = "none";
+                    loadPricingPlans();
+                })
+                .catch(error => console.error("Update Error:", error));
+        });
+    
+        document.getElementById("closeModal").addEventListener("click", function () {
+            document.getElementById("updateModal").style.display = "none";
+        });
+   
+        
+        loadPricingPlans();
+    });
+
+</script>
+</body>
+   </html>

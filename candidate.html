@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidate</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+ 
+  <style>
+    /* Header and Footer Styles (unchanged) */
+    
+    /* Body Content Animations and Styles */
+    .content-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .feature-card {
+      transition: all 0.4s ease;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3065f7, #18a2d0);
+      color: white;
+      font-size: 30px;
+    }
+
+    /* Custom Animations */
+    .slide-in-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .zoom-in {
+      animation: zoomIn 0.8s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Partner Slider */
+    .partners {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #f1f1f1;
+      padding: 20px 0;
+    }
+
+    .partner-slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .partner-track {
+      display: flex;
+      gap: 40px;
+      width: calc(220px * 10);
+      animation: scroll 20s linear infinite;
+    }
+
+    .partner-track img {
+      width: 220px;
+      height: 80px;
+      margin-right: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .partner-track img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* Dropdown Styles (unchanged) */
+    .user-dropdown {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: white;
+      width: 180px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 1000;
+      padding: 10px;
+    }
+
+    /* Footer Styles (unchanged) */
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 0;
+    }
+
+    .footer-title {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #18a2d0;
+    }
+
+
+    /* Default mobile menu - hidden */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 60px; /* adjust if needed */
+  right: 10px;
+  z-index: 999;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Show menu when toggled */
+.nav-links.show-menu {
+  display: flex;
+}
+
+/* Hamburger style */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+}
+
+/* Optional: hide hamburger on desktop */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .nav-links {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    border: none;
+  }
+}
+
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+}
+.dropdown-menu.show-submenu {
+  display: flex;
+}
+
+
+/* Mobile menu styles */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Default desktop nav */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block !important;
+  }
+
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .search-container {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Aligns items vertically */
+  gap: 20px;               /* Space between menu and user icon */
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar1" style="background-color: #87bcf5 !important; color: black; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-family: Arial, sans-serif;">
+    <span class="contact-info">
+        📍 777 Street, Bangalore, INDIA | 📞 +91 1234567890 | ✉ mahi@gmail.com
+    </span>
+    <span class="connect-with-us">
+        <a href="#" style="color: #eb0f0f; margin-left: 10px;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" style="color: #0a0a0a; margin-left: 10px;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" style="color: #040404; margin-left: 10px;"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-youtube"></i></a>
+    </span>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="uploads/1743837369_icon.png" alt="Logo" class="logo" style="height: 40px;">
+    </div>
+
+    
+
+    <!-- Hamburger Menu (for mobile) -->
+  <span class="hamburger" id="menuToggle">☰</span>
+
+  <!-- Flex container -->
+  <div class="nav-container">
+    <ul class="nav-links fs-4" id="navMenu">
+      <li><a href="home.html" id="service-link">Home <span class="loading-line"></span></a></li>
+      <li><a href="pricing.html" id="pricing-link">Pricing <span class="loading-line"></span></a></li>
+      <li class="dropdown">
+        <a href="#" id="support-link">Features <span class="caret">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="candidate.html">Candidate Sourcing</a></li>
+          <li><a href="careersite.html">Career Site</a></li>
+          <li><a href="resumemanagement.html">Resume Management</a></li>
+          <li><a href="backgroundscreening.html">Background Screening</a></li>
+        </ul>
+      </li>
+      <li><a href="solutions.html" id="contact-link">Solutions <span class="loading-line"></span></a></li>
+      <li><a href="contact.html" id="help-link">Contact <span class="loading-line"></span></a></li>
+    </ul>
+
+    <!-- User Icon -->
+    <div class="header-media user-dropdown-toggle" onclick="toggleDropdown()">
+      <i class="bi bi-person-circle" style="font-size: 30px; cursor: pointer;"></i>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="userDropdown" class="user-dropdown">
+      <div class="user-info">
+        <!-- <h6><?php echo htmlspecialchars($username ?? 'Guest'); ?></h6>
+        <p><?php echo htmlspecialchars($user_type ?? 'Unknown'); ?></p> -->
+      </div>
+      <hr>
+      <ul>
+        <li><a href="signIn.html">Logout</a></li>
+        <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <div class="container-fluid py-5 position-relative" style="margin-bottom: 90px; background-color: #ffffff;">
+      <div class="row py-5">
+          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+              <h1 class="display-3 text-dark mb-4 animate__animated animate__fadeInDown">Candidate Sourcing</h1>
+              <div class="d-flex justify-content-center align-items-center">
+                  <a href="home.html" class="h5 text-dark text-decoration-none">Home</a>
+                  <i class="fas fa-circle text-dark px-2" style="font-size: 0.5rem;"></i>
+                  <a href="#" class="h5 text-dark text-decoration-none fw-bold">Candidate Sourcing</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Features Section -->
+<div class="container-fluid content-section" data-aos="fade-up">
+    <div class="container">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+        <h1 class="fw-bold text-primary text-uppercase fs-2">What is Candidate Sourcing?</h1> <!-- Font size changed to fs-2 -->
+        <p class="lead fs-3">At Rebil Recruit, we understand the importance of finding the right talent. We've developed a comprehensive candidate sourcing strategy to help you connect with the best candidates.</p> <!-- Font size changed to fs-3 -->
+    </div>
+    
+        
+        <h2 class="text-center mb-5 fade-in-up">Our Approach to Candidate Sourcing</h2>
+        
+        <div class="row align-items-center g-4">
+            <!-- Left Column Features -->
+            <div class="col-lg-3 col-md-6">
+                <!-- Feature 1 -->
+                <div class="feature-card p-4 h-100 slide-in-left">
+                    <div class="feature-icon">
+                        <i class="fa fa-cubes"></i>
+                    </div>
+                    <h4 class="text-center fs-3">Extensive Network</h4>
+                    <p class="text-center fs-5">We have a vast network of qualified candidates. Our team constantly engages with this network to identify top talent.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card p-4 h-100 mt-4 slide-in-left" style="animation-delay: 0.2s">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #18a2d0, #3065f7);">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <h4 class="text-center fs-3">Targeted Outreach</h4>
+                    <p class="text-center fs-5">We use advanced search techniques to find passive candidates. We then reach out to gauge their interest.</p>
+                </div>
+            </div>
+            
+            <!-- Center Image -->
+            <div class="col-lg-6 zoom-in d-none d-lg-block">
+                <div class="text-center">
+                    <img class="img-fluid rounded" src="uploads/candidate.png" style="max-height: 500px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+            
+            <!-- Right Column Features -->
+            <div class="col-lg-3 col-md-6">
+                <!-- Feature 3 -->
+                <div class="feature-card p-4 h-100 slide-in-right" style="animation-delay: 0.2s">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #3065f7, #18a2d0);">
+                        <i class="fa fa-users-cog"></i>
+                    </div>
+                    <h4 class="text-center fs-3">Employer Branding</h4>
+                    <p class="text-center fs-5">We craft a compelling employer brand to attract the right candidates aligned with your organization.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card p-4 h-100 mt-4 slide-in-right">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #18a2d0, #3065f7);">
+                        <i class="fa fa-phone-alt"></i>
+                    </div>
+                    <h4 class="text-center fs-3">Candidate Engagement</h4>
+                    <p class="text-center fs-5">We provide personalized support and guidance throughout the recruitment process.</p>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+  <!-- Value Proposition Section -->
+  <div class="container-fluid content-section bg-white" data-aos="fade-up">
+    <div class="container">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px;">
+        <h1 class="fs-2 fw-semibold text-primary text-uppercase mb-4">Unleash Your Hiring Potential with Rebil Recruit</h1>
+        
+        <div class="mt-4">
+          <div class="d-flex align-items-center mb-3 fade-in-up">
+            <i class="fas fa-check-circle me-3 text-primary fs-4"></i>
+            <p class="mb-0 fs-4 text-dark">Our expert team transforms your talent acquisition through our vast network and advanced sourcing techniques.</p>
+          </div>
+          <div class="d-flex align-items-center mb-3 fade-in-up" style="animation-delay: 0.2s">
+            <i class="fas fa-check-circle me-3 text-primary fs-4"></i>
+            <p class="mb-0 fs-4 text-dark">We elevate your employer brand, crafting a compelling narrative that positions your company as the destination of choice.</p>
+          </div>
+          <div class="d-flex align-items-center fade-in-up" style="animation-delay: 0.4s">
+            <i class="fas fa-check-circle me-3 text-primary fs-4"></i>
+            <p class="mb-0 fs-4 text-dark">Our personalized engagement ensures a positive candidate experience, delivering unparalleled results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Advantages Section -->
+  <div class="container-fluid content-section" data-aos="fade-up">
+    <div class="container">
+      <h2 class="fs-1 fw-semibold text-center mb-5 fade-in-up">Rebil Recruit Advantage</h2>
+  
+      <div class="row align-items-center g-4 mb-5">
+        <div class="col-lg-7 slide-in-left">
+          <div class="pe-lg-5">
+            <h3 class="fs-2 text-primary mb-2">1. Access to an Expansive Talent Pool</h3>
+            <p class="fs-3 mb-0">Leverage our expertise and extensive network to connect with the best candidates in the market, even those who may not be actively searching.</p>
+          </div>
+        </div>
+        <div class="col-lg-5 slide-in-right">
+          <img class="img-fluid rounded" src="uploads/Talent.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+      
+  <div class="row align-items-center g-4 mb-5">
+    <div class="col-lg-5 order-lg-1 order-2 slide-in-right">
+      <img class="img-fluid rounded" src="uploads/hire.png">
+    </div>
+    <div class="col-lg-7 order-lg-2 order-1 slide-in-left">
+      <div class="ps-lg-5">
+        <h3 class="fs-2 text-primary mb-2">2. Accelerated Time-to-Hire</h3>
+        <p class="fs-3 mb-0">Our efficient sourcing strategies and streamlined processes help you fill your open positions faster, minimizing the impact on your business operations.</p>
+      </div>
+    </div>
+  </div>
+  
+      
+  <div class="container px-3"> <!-- Container with padding for better spacing -->
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7 slide-in-left">
+        <div class="pe-lg-5">
+          <h3 class="text-primary fs-2">3. Cost-Effective Solutions</h3> <!-- Adjusted font size for heading -->
+          <p class="fs-3">By outsourcing your candidate sourcing to Rebil Recruit, you can save on the time and resources required to manage this critical aspect of the recruitment process.</p> <!-- Adjusted font size for paragraph -->
+        </div>
+      </div>
+      <div class="col-lg-5 slide-in-right">
+        <img class="img-fluid rounded w-100" src="uploads/cost.png">
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <!-- Partners Section -->
+  <section class="partners mt-4" data-aos="fade-up">
+    <div class="container">
+      <h3 class="text-primary text-center mb-4 fade-in-up">Trusted By Leading Companies</h3>
+      <div class="partner-slider">
+        <div class="partner-track">
+          <img src="uploads/brand.jpg" alt="Partner 1">
+          <img src="uploads/brand1.jpg" alt="Partner 2">
+          <img src="uploads/brand2.jpg" alt="Partner 3">
+          <img src="uploads/brand3.jpg" alt="Partner 4">
+          <img src="uploads/brand4.jpg" alt="Partner 5">
+          <img src="uploads/brand5.jpg" alt="Partner 6">
+          <img src="uploads/brand6.jpg" alt="Partner 7">
+          <img src="uploads/brand7.jpg" alt="Partner 8">
+          <img src="uploads/brand8.jpg" alt="Partner 9">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer mt-5 py-4">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <h3 class="footer-title">REBIL Recruit</h3>
+          <p>Recruit's world-class recruitment software will help you find, evaluate, and communicate with candidates for any role.</p>
+          <p>A more efficient hiring process means new hires that add more value to your organization or clients.</p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Get In Touch</h3>
+          <p>777 Street, Bangalore, INDIA</p>
+          <p>mahi@gmail.com</p>
+          <p>+91 1234567890</p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Latest Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Popular Links</h3>
+          <ul class="footer-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Latest Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <p>© Rebil. All Rights Reserved. Designed by <a href="https://www.ttglobalit.com/">TT Global</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS with settings that allow re-animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false // This allows animations to trigger every time
+        });
+    
+        // Custom animation observer for elements with fade-in-up, slide-in-left/right classes
+        const animationElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .zoom-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove animation classes first to reset
+                    entry.target.classList.remove('fade-in-up', 'slide-in-left', 'slide-in-right', 'zoom-in');
+                    
+                    // Force reflow to ensure animation reset
+                    void entry.target.offsetWidth;
+                    
+                    // Re-add the appropriate animation class
+                    if (entry.target.classList.contains('fade-in-up-reset')) {
+                        entry.target.classList.add('fade-in-up');
+                    } else if (entry.target.classList.contains('slide-in-left-reset')) {
+                        entry.target.classList.add('slide-in-left');
+                    } else if (entry.target.classList.contains('slide-in-right-reset')) {
+                        entry.target.classList.add('slide-in-right');
+                    } else if (entry.target.classList.contains('zoom-in-reset')) {
+                        entry.target.classList.add('zoom-in');
+                    }
+                    
+                    // Trigger the animation
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
+                } else {
+                    // When element leaves viewport, reset its state
+                    entry.target.style.opacity = '0';
+                    if (entry.target.classList.contains('fade-in-up')) {
+                        entry.target.style.transform = 'translateY(30px)';
+                        entry.target.classList.add('fade-in-up-reset');
+                    } else if (entry.target.classList.contains('slide-in-left')) {
+                        entry.target.style.transform = 'translateX(-50px)';
+                        entry.target.classList.add('slide-in-left-reset');
+                    } else if (entry.target.classList.contains('slide-in-right')) {
+                        entry.target.style.transform = 'translateX(50px)';
+                        entry.target.classList.add('slide-in-right-reset');
+                    } else if (entry.target.classList.contains('zoom-in')) {
+                        entry.target.style.transform = 'scale(0.9)';
+                        entry.target.classList.add('zoom-in-reset');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+    
+        // Observe all animation elements
+        animationElements.forEach(el => {
+            // Set initial state
+            el.style.opacity = '0';
+            if (el.classList.contains('fade-in-up')) {
+                el.style.transform = 'translateY(30px)';
+                el.classList.add('fade-in-up-reset');
+            } else if (el.classList.contains('slide-in-left')) {
+                el.style.transform = 'translateX(-50px)';
+                el.classList.add('slide-in-left-reset');
+            } else if (el.classList.contains('slide-in-right')) {
+                el.style.transform = 'translateX(50px)';
+                el.classList.add('slide-in-right-reset');
+            } else if (el.classList.contains('zoom-in')) {
+                el.style.transform = 'scale(0.9)';
+                el.classList.add('zoom-in-reset');
+            }
+            
+            observer.observe(el);
+        });
+    });
+
+
+    // Dropdown functionality
+    function toggleDropdown() {
+        var dropdown = document.getElementById("userDropdown");
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+      }
+
+      document.addEventListener("click", function(event) {
+        var dropdown = document.getElementById("userDropdown");
+        var toggle = document.querySelector(".user-dropdown-toggle");
+
+        if (!toggle.contains(event.target) && !dropdown.contains(event.target)) {
+          dropdown.style.display = "none";
+        }
+      });
+
+
+      document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        const targetUrl = this.getAttribute('href');
+        console.log("Navigating to:", targetUrl);
+        window.location.href = targetUrl;
+    });
+});
+
+
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+  });
+
+
+
+
+    </script>
+</body>
+</html>

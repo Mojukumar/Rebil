@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solutions</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css">
+
+  <!-- AOS CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+
+  <style>
+    /* Ensure full height */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-1 {
+    height: 100vh; /* Full screen */
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    flex-direction: column;   /* Stack vertically */
+    text-align: center;
+    background-color: #f0f0f0; /* Optional background */
+    padding: 20px;
+  }
+
+  h2.sol-hed {
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 120px;
+  }
+
+  .sign-in-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 50px;
+    width: 130px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .sign-in-btn:hover {
+    background-color: #f38910;
+  }
+
+  .line-container {
+    position: relative;
+    width: 10%;
+    height: 5px;
+    margin: auto;
+    background-color: #3065f7;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0px;
+  }
+
+  .circle {
+    position: absolute;
+    top: -7.5px;
+    width: 10px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    animation: moveCircle 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes moveCircle {
+    from {
+      left: 0;
+    }
+    to {
+      left: calc(100% - 20px);
+    }
+    }
+
+
+    .line-containers {
+    position: relative;
+    width: 25%;
+    height: 5px;
+    margin: auto;
+    background-color:  #18a2d0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0px;
+    margin-left: 0; /* align to left */
+  }
+
+  .circles {
+    position: absolute;
+    top: -7.5px;
+    width: 10px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    animation: moveCircles 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes moveCircles {
+    from {
+      left: 0;
+    }
+    to {
+      left: calc(100% - 20px);
+    }
+    }
+    /* Section 2 - Stack under section 1 */
+    .section-2 {
+      padding: 100px 20px;
+      background-color: #ffffff;
+    }
+
+    .section-2 h1 {
+      text-align: center;
+      color: #007BFF;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-2 p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+    }
+
+    .zoom-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 1s ease;
+}
+
+.zoom-in-on-scroll.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.zoom-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease-in-out;
+}
+
+.zoom-in-on-scroll.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.partners {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f1f1f1;
+    padding: 20px 0;
+}
+
+.partner-slider {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.partner-track {
+    display: flex;
+    gap: 40px; /* Space between images */
+    width: calc(220px * 10); /* Adjust width based on image count */
+    animation: scroll 20s linear infinite; /* Slow animation */
+}
+
+.partner-track img {
+    width: 220px; /* Increase image width */
+    height: 80px; /* Maintain aspect ratio */
+    margin-right: 30px; /* More space between logos */
+}
+
+/* Slow Scrolling Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+} 
+
+
+
+/* Dropdown Container */
+.user-dropdown {
+    position: absolute;
+    top: 50px; /* Position below the icon */
+    right: 0;
+    background: white;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* User Info */
+.user-info h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-info p {
+    margin: 5px 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Dropdown Links */
+.user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-dropdown ul li {
+    padding: 8px;
+    text-align: left;
+}
+
+.user-dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-size: 14px;
+}
+
+.user-dropdown ul li a:hover {
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+
+
+/* Mobile menu styles */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Default desktop nav */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block !important;
+  }
+
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .search-container {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Aligns items vertically */
+  gap: 20px;               /* Space between menu and user icon */
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+
+  <!-- Top Bar -->
+<div class="top-bar1" style="background-color: #87bcf5 !important; color: black; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; font-family: Arial, sans-serif;">
+    <span class="contact-info">
+        📍 777 Street, Bangalore, INDIA | 📞 +91 1234567890 | ✉ mahi@gmail.com
+    </span>
+    <span class="connect-with-us">
+        <a href="#" style="color: #101010; margin-left: 10px;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" style="color: #0a0a0a; margin-left: 10px;"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" style="color: #040404; margin-left: 10px;"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" style="color: #000000; margin-left: 10px;"><i class="fa-brands fa-youtube"></i></a>
+    </span>
+</div>
+
+
+ <!-- Navbar -->
+<nav class="navbar">
+  <div class="logo-container">
+    <img src="uploads/1743837369_icon.png" alt="Logo" class="logo" style="height: 40px;">
+  </div>
+
+
+  
+</div>
+
+
+  
+
+  <!-- Hamburger Menu (for mobile) -->
+  <span class="hamburger" id="menuToggle">☰</span>
+
+  <!-- Flex container -->
+  <div class="nav-container">
+    <ul class="nav-links fs-4" id="navMenu">
+      <li><a href="home.html" id="service-link">Home <span class="loading-line"></span></a></li>
+      <li><a href="pricing.html" id="pricing-link">Pricing <span class="loading-line"></span></a></li>
+      <li class="dropdown">
+        <a href="#" id="support-link">Features <span class="caret">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="candidate.html">Candidate Sourcing</a></li>
+          <li><a href="careersite.html">Career Site</a></li>
+          <li><a href="resumemanagement.html">Resume Management</a></li>
+          <li><a href="backgroundscreening.html">Background Screening</a></li>
+        </ul>
+      </li>
+      <li><a href="solutions.html" id="contact-link">Solutions <span class="loading-line"></span></a></li>
+      <li><a href="contact.html" id="help-link">Contact <span class="loading-line"></span></a></li>
+    </ul>
+
+    <!-- User Icon -->
+    <div class="header-media user-dropdown-toggle" onclick="toggleDropdown()">
+      <i class="bi bi-person-circle" style="font-size: 30px; cursor: pointer;"></i>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="userDropdown" class="user-dropdown">
+      <div class="user-info">
+        <!-- <h6><?php echo htmlspecialchars($username ?? 'Guest'); ?></h6>
+        <p><?php echo htmlspecialchars($user_type ?? 'Unknown'); ?></p> -->
+      </div>
+      <hr>
+      <ul>
+        <li><a href="signIn.html">Logout</a></li>
+        <li><a href="admin_dashboard.php">Admin Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  
+
+  <!-- Section 1 -->
+  <section class="section-1 text-center mb-5">
+    <h2 class="sol-hed text-uppercase text-dark"
+        style="font-size: 40px; font-weight: 700; letter-spacing: 1px; color: #4facfe; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+      Specific Recruitment Calls for Specific Remedies
+    </h2>
+    <button class="sign-in-btn" onclick="window.location.href='signIn.html'">Sign In</button>
+
+    <div class="line-container">
+      <div class="circle"></div>
+    </div>
+  </section>
+  
+
+  <!-- Section 2 -->
+  <section class="section-2">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row g-5">
+          <h1 class="text-primary">Recruit is where candidate experience meets client satisfaction</h1>
+          <p>
+            Successful recruitment efforts involve not only finding the right candidates for the job but also ensuring that the overall process is satisfactory for both parties involved. By prioritizing both candidate experience and client satisfaction, recruitment efforts can lead to successful outcomes for all stakeholders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2 py-5" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Left Side: Text Content -->
+        <div class="col-lg-7" data-aos="fade-up" data-aos-duration="1000">
+          <div class="section-title position-relative pb-3 mb-4">
+            <h5 class="fw-bold text-dark text-uppercase">For staffing agencies</h5>
+            <h1 class="mb-3 text-primary">
+              "Our staffing approach combines technology, industry knowledge, and personalized service for seamless solutions"
+            </h1>
+            <div class="line-containers">
+              <div class="circles"></div>
+            </div>
+          </div>
+          <p class="text-dark text-justify" style="font-size: 18px; white-space: normal; overflow: visible; text-overflow: unset; display: block;">
+            For businesses seeking exceptional talent, Rebil Recruitment offers a comprehensive suite of staffing solutions. Whether you need temporary, permanent, or specialized staffing, we have the resources and experience to identify and deliver the most suitable candidates for your organization.
+          </p>
+          
+        </div>
+        
+  
+        <div class="col-lg-5 text-center">
+          <img src="uploads/our.png"
+               alt="Staffing Illustration"
+               class="img-fluid rounded shadow zoom-in-on-scroll">
+        </div>
+        
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: For Internal Hiring Teams -->
+<section class="section-3 py-5" style="background-color: #f8f9fa;">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      
+      <!-- Left Content -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-duration="1000">
+        <div class="section-title position-relative pb-3 mb-4">
+          <h5 class="fw-bold text-dark text-uppercase">For internal hiring teams</h5>
+          
+          <h1 class="mb-0 text-primary">
+            "Our approach to collaborating with internal hiring teams centers on building a strong, cooperative partnership to enhance talent acquisition"
+          </h1>
+          <div class="line-containers">
+            <div class="circles"></div>
+          </div>
+        </div>
+        <p class="text-dark" style="font-size: 18px;">
+          For internal hiring teams seeking efficient talent acquisition, enhanced candidate experiences, and streamlined processes, Rebil Recruitment offers a range of tailored solutions. Whether you need support with sourcing, screening, or onboarding, we have the expertise and resources to optimize your hiring journey.
+        </p>
+      </div>
+      
+
+      <div class="col-lg-5 text-center">
+        <img src="uploads/approch.png"
+     alt="Staffing Illustration"
+     class="img-fluid rounded shadow zoom-in-on-scroll">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-4 py-5" style="background-color: #ffffff;">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      
+      <!-- Left Content -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-duration="1000">
+        <div class="section-title position-relative pb-3 mb-5">   
+          <h5 class="fw-bold text-dark text-uppercase">For Manufacturing</h5>
+          <br>
+          <h1 class="mb-0 text-primary">
+            "We leverage our industry-centric expertise to identify and deliver top-tier talent that aligns with the specific demands and challenges of the manufacturing sector"
+          </h1>
+          <div class="line-containers">
+            <div class="circles"></div>
+          </div>
+        </div>
+        <p class="text-dark" style="font-size: 18px;">
+          Manufacturing companies seeking to optimize their workforce and secure the best talent turn to Rebil Recruitment for unparalleled support. We are committed to providing efficient staffing solutions that drive growth and productivity within the manufacturing environment.
+        </p>
+        
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="uploads/top.png" class="img-fluid rounded shadow">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-5 py-5" style="background-color: #f8f9fa;">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <!-- Left Content -->
+      <div class="col-lg-7" data-aos="fade-up" data-aos-duration="1000">
+        <div class="section-title position-relative pb-3 mb-5">   
+          <h5 class="fw-bold text-dark text-uppercase">For Education</h5>
+          <br>
+          <h1 class="mb-0 text-primary">
+            "We provide specialized staffing solutions tailored to meet the diverse needs of schools, colleges, and educational facilities, recognizing the crucial role of educators and support staff in their success"
+          </h1>
+          <div class="line-containers">
+            <div class="circles"></div>
+          </div>
+        </div>
+        <p class="text-dark" style="font-size: 18px;">
+          Educational organizations seeking to enhance their workforce capabilities can rely on Rebil Recruitment to provide customized staffing solutions that align with the values and mission of their institution. Our expertise ensures that we meet the unique staffing needs of the education sector.
+        </p>
+        
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="uploads/special.png" class="img-fluid rounded shadow">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="partners mt-4" data-aos="fade-up">
+  <div class="container">
+    <h3 class="text-primary text-center mb-4 fade-in-up">Trusted By Leading Companies</h3>
+    <div class="partner-slider">
+      <div class="partner-track">
+        <img src="uploads/brand.jpg" alt="Partner 1">
+        <img src="uploads/brand1.jpg" alt="Partner 2">
+        <img src="uploads/brand2.jpg" alt="Partner 3">
+        <img src="uploads/brand3.jpg" alt="Partner 4">
+        <img src="uploads/brand4.jpg" alt="Partner 5">
+        <img src="uploads/brand5.jpg" alt="Partner 6">
+        <img src="uploads/brand6.jpg" alt="Partner 7">
+        <img src="uploads/brand7.jpg" alt="Partner 8">
+        <img src="uploads/brand8.jpg" alt="Partner 9">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer Section -->
+<footer class="footer mt-5 py-4">
+  <div class="container">
+      <div class="footer-container">
+          <!-- Column 1: REBIL Recruit -->
+          <div>
+              <h3 class="footer-title">REBIL Recruit</h3>
+              <p>Recruit's world-class recruitment software will help you find, evaluate, and communicate with candidates for any role.</p>
+              <p>A more efficient hiring process means new hires that add more value to your organization or clients.</p>
+          </div>
+
+          <!-- Column 2: Get in Touch -->
+          <div>
+              <h3 class="footer-title">Get In Touch</h3>
+              <p>777 Street, Bangalore, INDIA</p>
+              <p>mahi@gmail.com</p>
+              <p>+91 1234567890</p>
+          </div>
+
+          <!-- Column 3: Quick Links -->
+          <div>
+              <h3 class="footer-title">Quick Links</h3>
+              <ul class="footer-links">
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Our Services</a></li>
+                  <li><a href="#">Latest Blog</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 4: Popular Links -->
+          <div>
+              <h3 class="footer-title">Popular Links</h3>
+              <ul class="footer-links">
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Our Services</a></li>
+                  <li><a href="#">Latest Blog</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="text-center mt-4">
+          <p>© Rebil. All Rights Reserved. Designed by <a href="https://www.ttglobalit.com/">TT Global</a></p>
+      </div>
+  </div>
+</footer>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+</body>
+<script>
+
+
+function toggleDropdown() {
+    var dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function(event) {
+    var dropdown = document.getElementById("userDropdown");
+    var toggle = document.querySelector(".user-dropdown-toggle");
+
+    if (!toggle.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+});
+
+
+
+  const zoomImage = document.querySelector('.zoom-in-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(zoomImage);
+
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+  });
+
+
+
+
+
+  window.addEventListener("scroll", function () {
+    const zoomElems = document.querySelectorAll(".zoom-in-on-scroll");
+    zoomElems.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  });
+
+  AOS.init();
+
+  document.querySelectorAll('.dropdown-menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default behavior to allow custom navigation
+        
+        const targetUrl = this.getAttribute('href');
+        console.log("Navigating to:", targetUrl);
+        
+        // Allowing navigation to the target URL
+        window.location.href = targetUrl;
+    });
+});
+
+  
+</script>
+
+</html>

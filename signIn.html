@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rebil Login</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="styles.css" rel="stylesheet">
+
+    <style>
+        /* Full Page Layout */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue Gradient */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Left Side - Login Form */
+        .login-form {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .login-form h3 {
+            color: #007bff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .login-form p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        /* Social Media Login */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 18px;
+            color: white;
+            background: #007bff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #0056b3;
+        }
+
+        /* Right Side - Image & Content */
+        .login-media {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .login-media img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .crm-info {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .login-media {
+                display: none; /* Hide image on small screens */
+            }
+        }
+        .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    font-size: 18px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+/* Facebook */
+.facebook {
+    background: #1877f2;
+}
+
+.facebook:hover {
+    background: #0d65d9;
+    transform: scale(1.1);
+}
+
+/* Google */
+.google {
+    background: #db4437;
+}
+
+.google:hover {
+    background: #b83224;
+    transform: scale(1.1);
+}
+
+/* LinkedIn */
+.linkedin {
+    background: #0077b5;
+}
+
+.linkedin:hover {
+    background: #005582;
+    transform: scale(1.1);
+}
+
+/* Twitter */
+.twitter {
+    background: #1da1f2;
+}
+
+.twitter:hover {
+    background: #0c85d0;
+    transform: scale(1.1);
+}
+
+/* Small Checkbox */
+.custom-checkbox {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin-top: 1px; /* Adjusts checkbox alignment */
+}
+
+/* Ensure label text is aligned properly */
+.form-check-label {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap; /* Prevents text from breaking into a new line */
+}
+
+/* Space between checkbox and text */
+.me-2 {
+    margin-right: 8px;
+}
+
+/* Prevent wrapping */
+.flex-nowrap {
+    flex-wrap: nowrap !important;
+}
+
+/* Align checkbox and text perfectly */
+.d-flex.align-items-center {
+    align-items: center !important;
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Left Side: Login Form -->
+        <div class="login-form">
+            <h3>Sign In</h3>
+            <p>Sign in to your account to start using Rebil Recruit</p>
+            
+            <form action="login.php" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+            
+                <!-- Role Selection Dropdown -->
+                  
+            
+                <!-- Remember Me & Forgot Password Section -->
+                <div class="d-flex justify-content-between align-items-center mt-3 flex-nowrap">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" name="rememberMe" class="custom-checkbox me-2" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember my preference</label>
+                    </div>
+                    <a href="/RebilFrontend/forget.html" class="btn-link text-primary">Forgot Password?</a>
+                </div>
+            
+                <button type="submit" class="btn btn-primary mt-3">Sign In</button>
+            </form>
+            
+            
+            
+            
+            <h6 class="text-center mt-3">Or continue with</h6>
+<div class="social-icons">
+    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+    <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+</div>
+            
+            <p class="text-center mt-3">Not registered? <a href="register.html">Register</a></p>
+        </div>
+
+        <!-- Right Side: Image & Content -->
+        <div class="login-media">
+            <img src="https://imgs.search.brave.com/zo_dcddMOYQyeLfSGsQq398fBz-n5s0G2U7dDGp2BQ4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzkzLzM4Lzcw/LzM2MF9GXzEwOTMz/ODcwOTZfc3pmN0hY/c2FTM0dwVVJMWWt0/Uk9EZkI1amJScExF/aVIuanBn" alt="CRM Dashboard">
+            <p class="crm-info">
+                REBIL Recruit –
+                <img src="uploads/ai.webp" alt="AI Image" style="height: 30px; width: 30px; vertical-align: middle;">
+                Powered Recruitment Management System
+            </p>
+            
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorMessage = urlParams.get('error');
+            const successMessage = urlParams.get('success');
+    
+            if (errorMessage) {
+                alert(decodeURIComponent(errorMessage)); // Show error as an alert
+            }
+    
+            if (successMessage) {
+                alert(decodeURIComponent(successMessage)); // Show success message
+            }
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+
+</body>
+</html>
